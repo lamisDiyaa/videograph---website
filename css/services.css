@@ -1,0 +1,43 @@
+
+/* start create__videos */
+.create__video__bg{
+background-image: url(../imgs/calltos-bg.jpg);
+background-position: center;
+background-size: cover;
+height: 50vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 3rem;
+}
+.create__video__bg h4{
+    font-size: 4.4rem;
+    line-height: 55px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+.create__video__bg p{
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.57);
+    letter-spacing: 1px;
+    margin-bottom: 55px;
+}
+
+.create__video__bg .stories__btn{
+    padding: 1.4rem 3.2rem  1.2rem;
+}
+.logos{
+    display: flex;
+    gap: 4.5rem;
+}
+.logos .logo{
+    padding: 6.5rem;
+}
+.logos .logo:first-child{
+    padding-left: 0;
+}
+.create__videos .logos{
+    /* width: 20%; */
+}
+/* end create__videos */

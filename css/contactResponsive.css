@@ -1,0 +1,21 @@
+
+@media screen and (max-width: 992px) {
+
+    .contact__cards{
+       flex-wrap: wrap;
+    }
+    .contact__form{
+        flex-wrap: wrap;
+    }
+    .form__card{
+        width: 100%;    
+    }
+    .form__card iframe{
+        height: 50vh;
+        width: 100%;
+    }
+
+}
+
+
+

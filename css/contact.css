@@ -1,0 +1,80 @@
+
+/*start contact cards */
+.contact__cards{
+    display: flex;
+    padding: 7rem 0;
+    gap: 2rem;
+}
+
+
+
+
+.contact__card{
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-grow: 1;
+}
+
+.contact__icon i{
+    border: 1px solid var(--p-color);
+padding: 2.5rem;
+border-radius: 50%;
+}
+
+.contact__description{
+    font-size: 1.6rem;
+    color: var(--p-color);
+}
+
+/*end contact cards */
+
+/* start contact form */
+.contact__form{
+    padding: 2rem 0 7rem;
+}
+
+.form__card{
+    width: 50%;
+    padding:0 1.5rem;
+    margin-bottom: 6rem;
+  
+    
+}
+.form__card:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form__card iframe{
+    height: 100%;
+}
+.form__card h3{
+    font-size: 3.5rem;
+    margin-bottom: 35px;
+}
+.form__card input[type="text"], .form__card textarea{
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.516);
+    outline: none;
+    background-color: transparent;
+    padding: 1.5rem;
+    margin-bottom: 20px;
+}
+.form__card input::placeholder , .form__card textarea::placeholder{
+   font-size: 1.4rem;
+   color:rgba(255, 255, 255, 0.516);
+}
+input[type="submit"]{
+    width: 100%;
+    text-align: center;
+    color: var(--white-color);
+    background-color: #00BFE7;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Cairo Play', sans-serif;
+    letter-spacing: 2px;
+}
+/* end contact form */

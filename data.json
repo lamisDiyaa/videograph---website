@@ -1,0 +1,30 @@
+[{
+    "img":"./imgs/portfolio-2.jpg",
+    "category":"digitalMarketing"
+},{
+    "img":"./imgs/portfolio-7.jpg",
+    "category":"web"
+},{
+    "img":"./imgs/portfolio-1.jpg",
+    "category":"branding"
+},{
+    "img":"./imgs/portfolio-3.jpg",
+    "category":"web"
+},{
+    "img":"./imgs/portfolio-4.jpg",
+    "category":"photography"
+},{
+    "img":"./imgs/portfolio-5.jpg",
+    "category":"Ecommerce"
+},{
+    "img":"./imgs/portfolio-6.jpg",
+    "category":"branding"
+},{
+    "img":"./imgs/portfolio-8.jpg",
+    "category":"photography"
+},{
+    "img":"./imgs/portfolio-9.jpg",
+    "category":"Ecommerce"
+}
+
+]
