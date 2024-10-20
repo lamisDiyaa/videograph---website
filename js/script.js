@@ -20,6 +20,15 @@ getData();
 
 let countersTriggered = false;
 
+// to put active-li onloading when page is index just
+const currentURL = window.location.href;
+if(currentURL.includes("/index.html")){
+
+  headerLi[0].classList.add("active-li")
+}
+
+
+
 window.onscroll = function () {
   if (!countersTriggered && window.scrollY > scoreSection.offsetTop - 150) {
     console.log("Counters triggered!");
