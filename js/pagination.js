@@ -64,7 +64,7 @@ function showDefault(){
              </div>`;
       }
 }
-showDefault()
+data?showDefault():"console.log("nooooooooo")
 
 
 
