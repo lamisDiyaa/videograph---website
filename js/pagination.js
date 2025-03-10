@@ -5,12 +5,23 @@ let before = document.querySelector(".before");
 let start = 3;
 let end;
 let itemsPerPage = 3;
- data = JSON.parse(localStorage.getItem("data")) ?? [];
+
 const itemsDiv = document.querySelector(".portfolio__cards");
 
+async function getData() {
+  try {
+    const response = await fetch("data.json");
+    // let allData = await response.json();
+    let data = await response.json();
+    localStorage.setItem("data", JSON.stringify(data));
+    console.log(data);
+  } catch (error) {
+    alert(error);
+  }
+}
+getData();
 
-
-
+ data = JSON.parse(localStorage.getItem("data")) ?? [];
 
 function show(arr){
     itemsDiv.innerHTML = arr
