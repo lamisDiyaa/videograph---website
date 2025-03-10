@@ -1,4 +1,3 @@
-
 let count = 0;
 let next = document.querySelector(".next");
 let before = document.querySelector(".before");
@@ -7,99 +6,100 @@ let end;
 let itemsPerPage = 3;
 
 const itemsDiv = document.querySelector(".portfolio__cards");
-let data 
+let data;
+
 async function getData() {
-  try {
-    const response = await fetch("data.json");
-    // let allData = await response.json();
-    data = await response.json();
-    localStorage.setItem("data", JSON.stringify(data));
-    console.log(data);
-  } catch (error) {
-    alert(error);
+  if (localStorage.getItem("data")) {
+    data = JSON.parse(localStorage.getItem("data"));
+    console.log("Data loaded from localStorage:", data);
+  } else {
+    try {
+      const response = await fetch("data.json");
+      data = await response.json();
+      localStorage.setItem("data", JSON.stringify(data));
+      console.log("Data fetched from API:", data);
+    } catch (error) {
+      alert("Error fetching data: " + error);
+    }
   }
 }
-getData();
 
- data = JSON.parse(localStorage.getItem("data")) ?? [];
-  console.log(data);
-function show(arr){
-    itemsDiv.innerHTML = arr
-      .map(
-        (item) => `<div class="portfolio__card">
-          <div class="card__img">
-              <img src=${item.img} alt="">
-              <div class="portfolio__overlay">
-                  <i class="fa-solid fa-play"></i>
-              </div>
+async function init() {
+  await getData(); // Wait for data to load first
+  if (data && data.length > 0) { // Ensure data is not undefined or empty
+    showDefault(); // Render the first three items
+    setUpPagination(); // Set up pagination event listeners
+  } else {
+    console.error("Data is empty or not correctly loaded.");
+  }
+}
+
+function show(arr) {
+  itemsDiv.innerHTML = arr
+    .map(
+      (item) => `<div class="portfolio__card">
+        <div class="card__img">
+          <img src="${item.img}" alt="">
+          <div class="portfolio__overlay">
+            <i class="fa-solid fa-play"></i>
           </div>
-              <h3>
-                  VIP Auto Tires & Service
-              </h3>
-              <p>
-                  eCommerce / Magento
-              </p>
-         </div>`
-      )
-      .join("");
-
+        </div>
+        <h3>VIP Auto Tires & Service</h3>
+        <p>eCommerce / Magento</p>
+      </div>`
+    )
+    .join("");
 }
 
-// the default products
-function showDefault(){
+function showDefault() {
+  if (data.length > 0) {
+    let html = ''; // Construct HTML in a variable
     for (let i = 0; i < 3; i++) {
-        itemsDiv.innerHTML += `<div class="portfolio__card">
-              <div class="card__img">
-                  <img src=${data[i].img} alt="">
-                  <div class="portfolio__overlay">
-                      <i class="fa-solid fa-play"></i>
-                  </div>
+      // Ensure data[i] is defined and has an img property
+      if (data[i] && data[i].img) {
+        html += `
+          <div class="portfolio__card">
+            <div class="card__img">
+              <img src="${data[i].img}" alt="">
+              <div class="portfolio__overlay">
+                <i class="fa-solid fa-play"></i>
               </div>
-                  <h3>
-                      VIP Auto Tires & Service
-                  </h3>
-                  <p>
-                      eCommerce / Magento
-                  </p>
-             </div>`;
+            </div>
+            <h3>VIP Auto Tires & Service</h3>
+            <p>eCommerce / Magento</p>
+          </div>`;
+      } else {
+        console.error(`Missing 'img' property in data[${i}]`);
       }
+    }
+    itemsDiv.innerHTML = html; // Update the DOM
+  } else {
+    console.error("Data is empty or not correctly structured.");
+  }
 }
-data?showDefault():"console.log("nooooooooo")
 
-
-
-// Function to render items for the current page
-
-next.addEventListener("click", function (e) {
-    start=start==0?3:start
+function setUpPagination() {
+  next.addEventListener("click", function (e) {
     if (start < data.length) {
       end = start + itemsPerPage;
       let paginatedItems = data.slice(start, end);
-      show(paginatedItems)
-      start += 3;
-    }else{
-      e.preventDefault()
-    }
-  });
-  
-  before.addEventListener("click", function (e) {
-    console.log(start);
-    let end2;
-    if (start > data.length) {
-      end2 = data.length;
+      show(paginatedItems);
+      start += itemsPerPage;
     } else {
-      end2 = start - 3;
+      e.preventDefault();
     }
-  
-    if (start > 3) {
-      start = end2 - itemsPerPage;
-      let paginatedItems = data.slice(start, end2);
-      show(paginatedItems)
-      console.log(start,end)
-      start = end2;
-    }else{
-      start=0
-      e.preventDefault()
-    }
-   
   });
+
+  before.addEventListener("click", function (e) {
+    if (start > itemsPerPage) {
+      start -= itemsPerPage;
+      end = start + itemsPerPage;
+      let paginatedItems = data.slice(start, end);
+      show(paginatedItems);
+    } else {
+      e.preventDefault();
+    }
+  });
+}
+
+init(); // Initialize the app
