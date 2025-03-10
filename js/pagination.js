@@ -7,12 +7,12 @@ let end;
 let itemsPerPage = 3;
 
 const itemsDiv = document.querySelector(".portfolio__cards");
-
+let data 
 async function getData() {
   try {
     const response = await fetch("data.json");
     // let allData = await response.json();
-    let data = await response.json();
+    data = await response.json();
     localStorage.setItem("data", JSON.stringify(data));
     console.log(data);
   } catch (error) {
