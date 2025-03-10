@@ -22,7 +22,7 @@ async function getData() {
 getData();
 
  data = JSON.parse(localStorage.getItem("data")) ?? [];
-
+  console.log(data);
 function show(arr){
     itemsDiv.innerHTML = arr
       .map(
