@@ -1,16 +1,18 @@
 let toggle = document.querySelector(".toggle");
 let nav = document.querySelector("nav");
-let header = document.querySelector("nav .header__list");
+let header =
+  document.querySelector("nav .header__list") ??
+  document.querySelector("nav .header__list__responsive");
 let headerLi = document.querySelectorAll(".header-li");
 let data = JSON.parse(localStorage.getItem("data")) ?? [];
 let scoreCards = document.querySelectorAll(".score__number");
 let scoreSection = document.querySelector(".score");
-console.log(Array.from(headerLi));
+
 async function getData() {
   try {
     const response = await fetch("data.json");
     let allData = await response.json();
-    localStorage.setItem("data", JSON.stringify(data));
+    localStorage.setItem("data", JSON.stringify(allData));
     console.log(data);
   } catch (error) {
     alert(error);
@@ -22,12 +24,9 @@ let countersTriggered = false;
 
 // to put active-li onloading when page is index just
 const currentURL = window.location.href;
-if(currentURL.includes("/index.html")){
-
-  headerLi[0].classList.add("active-li")
+if (currentURL.includes("/index.html")) {
+  headerLi[0].classList.add("active-li");
 }
-
-
 
 window.onscroll = function () {
   if (!countersTriggered && window.scrollY > scoreSection.offsetTop - 150) {
@@ -61,7 +60,6 @@ toggle.addEventListener("click", function () {
   count += 6;
 });
 
-
 // to put the class on selected li in the header
 header.addEventListener("click", function (e) {
   e.preventDefault();
@@ -70,13 +68,13 @@ header.addEventListener("click", function (e) {
     headerLi.forEach(function (ele) {
       ele.classList.remove("active-li");
     });
- 
+
     let href = e.target.getAttribute("href");
     localStorage.setItem("activeLink", href);
     window.open(href, "_blank");
   }
 });
- 
+
 window.addEventListener("load", function () {
   let activeLink = localStorage.getItem("activeLink");
   if (activeLink) {

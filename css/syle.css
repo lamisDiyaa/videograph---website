@@ -78,10 +78,11 @@ img {
     transform: translateY(1rem);
   }
 }
-@keyframes scale{
+
+@keyframes scale {
   0% {
     opacity: 0;
-    transform: scale(.1);
+    transform: scale(0.1);
   }
   100% {
     opacity: 1;
@@ -89,11 +90,13 @@ img {
   }
 }
 
-
 /* start header */
-.wrapper{
+.wrapper__main {
   position: relative;
-  /* transform: translateY(-20px); */
+  transform: translateY(-20px);
+}
+.wrapper {
+  position: relative;
 }
 
 .header {
@@ -103,7 +106,9 @@ img {
   right: 0;
   top: 0;
   z-index: 10;
-  /* background-color: red; */
+}
+header .icons__header {
+  display: block;
 }
 .header__container {
   top: 0;
@@ -125,11 +130,17 @@ nav {
   text-transform: uppercase;
   line-height: 1.5;
 }
-nav button{
-  display: none ;  
+nav button {
+  display: none;
 }
-
+.header__list__responsive {
+  display: none;
+}
 .header__list {
+  display: block;
+}
+.header__list {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -148,7 +159,7 @@ nav button{
   left: 50%;
   transition: var(--transition-timing);
 }
-.active-li::after{
+.active-li::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -536,19 +547,17 @@ nav button{
   left: -64px;
   top: -64px;
 }
-.score__card24::after{
-    content: "";
-    width: 618px;
-    height: 618px;  
-    border-bottom: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    position: absolute;
-    right: -54px;
-    bottom: -54px;
+.score__card24::after {
+  content: "";
+  width: 618px;
+  height: 618px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  position: absolute;
+  right: -54px;
+  bottom: -54px;
 }
 .score__card25 {
-
-
   grid-row: 1/2;
   grid-column: 4/5;
 }
@@ -613,8 +622,7 @@ nav button{
   display: block;
 }
 
-
-.our__team__card:nth-child(1){
+.our__team__card:nth-child(1) {
   position: absolute;
   width: 20%;
   top: 0;
@@ -622,10 +630,10 @@ nav button{
   top: 40%;
   overflow: hidden;
 }
-.our__team__card:hover .our__team__overlay{
+.our__team__card:hover .our__team__overlay {
   bottom: 0;
 }
-.our__team__card:nth-child(2){
+.our__team__card:nth-child(2) {
   position: absolute;
   width: 20%;
   top: 0;
@@ -641,7 +649,7 @@ nav button{
   top: 20%;
   overflow: hidden;
 }
-.our__team__card:nth-child(4){
+.our__team__card:nth-child(4) {
   position: absolute;
   width: 20%;
   top: 0;
