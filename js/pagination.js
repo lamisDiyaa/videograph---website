@@ -6,7 +6,7 @@ let end;
 let itemsPerPage = 3;
 data = JSON.parse(localStorage.getItem("data")) ?? [];
 const itemsDiv = document.querySelector(".portfolio__cards");
-console.log(data);
+
 function show(arr) {
   itemsDiv.innerHTML = arr
     .map(

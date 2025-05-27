@@ -71,7 +71,7 @@ header.addEventListener("click", function (e) {
 
     let href = e.target.getAttribute("href");
     localStorage.setItem("activeLink", href);
-    window.open(href, "_blank");
+    window.location.href = href;
   }
 });
 
