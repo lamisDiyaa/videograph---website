@@ -13,7 +13,7 @@
 }
 @media screen and (max-width: 992px) {
   .logo__img img {
-    width: 85%;
+    width: 180px;
   }
   header .icons__header {
     display: none;
@@ -182,7 +182,7 @@
 
 @media screen and (max-width: 768px) {
   .logo__img {
-    width: 25%;
+    width: 160px;
   }
   .logo__img img {
     width: 100%;
