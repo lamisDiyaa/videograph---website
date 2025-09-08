@@ -79,7 +79,7 @@
     padding-top: 20px;
     top: 0;
     opacity: 1;
-    height: 220px;
+    height: 270px;
     transform: translateX(-50%);
   }
   nav .header__list__responsive li {
@@ -164,7 +164,7 @@
     flex-wrap: wrap;
     margin: 2rem 0;
   }
-  .blog__card {
+  .index__blog__card {
     width: calc((100% - 1.5rem) / 2) !important;
     margin-bottom: 0.5rem;
   }
@@ -252,7 +252,7 @@
   .albums__layout:last-child {
     margin-left: 0;
   }
-  .blog__card {
+  .index__blog__card {
     width: 100% !important;
     margin-bottom: 0.5rem;
   }

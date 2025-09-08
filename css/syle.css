@@ -734,7 +734,7 @@ nav button {
   gap: 1.5rem;
   margin-top: 4rem;
 }
-.blog__card {
+.index__blog__card {
   position: relative;
   width: 33%;
   padding: 4rem;
@@ -746,7 +746,7 @@ nav button {
   z-index: 1;
   margin-bottom: 5rem;
 }
-.blog__card::after {
+.index__blog__card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -754,10 +754,10 @@ nav button {
   z-index: -1;
   transition: var(--transition-timing);
 }
-.blog__card:hover::after {
+.index__blog__card:hover::after {
   opacity: 0;
 }
-.blog__card h5 {
+.index__blog__card h5 {
   font-size: 2.4rem;
   line-height: 1.3;
 }
